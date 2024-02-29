@@ -9,6 +9,7 @@ import { ChatMessage } from '../../interfaces/ChatMessageModel';
 })
 export class ChatComponent {
 
+
   constructor(private chatService: ChatService){}
 
   ngOnInit(): void{

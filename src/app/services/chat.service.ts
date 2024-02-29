@@ -8,30 +8,30 @@ import { ChatMessage } from '../interfaces/ChatMessageModel';
 })
 export class ChatService {
 
-  private stompClient : any;
+  private stompClient: any;
 
-  constructor() { }
+  constructor() {
+    this.initConnectionSocket();
+   }
 
-  initConnectionSocket(){
-    const url = '//localhost:300/chatsocket';
+  initConnectionSocket() {
+    const url = 'http://localhost:3000/chatsocket';
 
     const socket = new SockJS(url);
     
     this.stompClient = Stomp.over(socket);
   }
 
-
-  joinRoom(roomId: string){
-    this.stompClient.connect({}, () =>{
-      this.stompClient.suscribe(`/topic/${roomId}`, (messages: any) =>{
+  joinRoom(roomId: string) {
+    this.stompClient.connect({}, () => {
+      this.stompClient.subscribe(`/topic/${roomId}`, (messages: any) => {
         const messageContent = JSON.parse(messages.body);
         console.log(messageContent);
-        
-      })
-    })
+      });
+    });
   }
 
-  sendMessage(roomId: string, ChatMessage: ChatMessage){
-    this.stompClient.send(`/app/chat/${roomId}`, {}, JSON.stringify(ChatMessage));
+  sendMessage(roomId: string, chatMessage: ChatMessage) {
+    this.stompClient.send(`/app/chat/${roomId}`, {}, JSON.stringify(chatMessage));
   }
 }

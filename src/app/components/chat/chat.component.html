@@ -3,12 +3,13 @@
       <div class="title">
     </div>
     <ul class="messages">
-      <li class="message right" *ngFor="let item of messageList">
+        <li class="message" *ngFor="let item of messageList" 
+        [ngClass]="{'left': item.message_side === 'receiver', 'right': item.message_side === 'sender'}">
         <div class="avatar"></div>
         <div class="text_wrapper">
           <div class="text">{{item.message}}</div>
         </div>
-      </li>
+      </li>      
     </ul>
     <div class="bottom_wrapper clearfix">
       <div class="message_input_wrapper">

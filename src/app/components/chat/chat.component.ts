@@ -26,19 +26,25 @@ export class ChatComponent {
   }
 
   sendMessageOnChat() {
+    console.log('Sending message with user:', this.userId);
     const chatMessage = {
       message: this.messageInput,
-      username: this.userId
+      user: this.userId
     } as ChatMessage;
     this.chatService.sendMessage("sala-1", chatMessage);
     this.messageInput = '';
   }
+  
 
   listenerMessage() {
     this.chatService.getMessageSubject().subscribe((messages: any[]) => {
-      this.messageList = messages; 
+      this.messageList = messages.map((item: any) => ({
+        ...item,
+        message_side: item.user === this.userId ? 'sender' : 'receiver'
+      }));
     });
   }
+  
   
 
 }

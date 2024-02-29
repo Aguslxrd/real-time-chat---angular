@@ -3,16 +3,16 @@
       <div class="title">
     </div>
     <ul class="messages">
-      <li class="message right">
+      <li class="message right" *ngFor="let item of messageList">
         <div class="avatar"></div>
         <div class="text_wrapper">
-          <div class="text">prueba</div>
+          <div class="text">{{item.message}}</div>
         </div>
       </li>
     </ul>
     <div class="bottom_wrapper clearfix">
       <div class="message_input_wrapper">
-        <input class="message_input" placeholder="Message..." />
+        <input class="message_input" placeholder="Message..." [(ngModel)] = "messageInput" />
       </div>
       <div class="send_message" (click)="sendMessageOnChat()">
         <div class="icon"></div>

@@ -25,3 +25,27 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+# Chat en tiempo real
+Aplicacion simple hecha en springboot como backend y angular como frontend, lo ideal seria implementar una base de datos nosql como mongodb.
+
+[Backend]: ([https://github.com/Aguslxrd/real-time-chat---angular](https://github.com/Aguslxrd/real-time-chat---springboot))
+
+## Tecnologías Utilizadas
+
+- **Backend:**
+  - Spring Boot (Java)
+  - Sockets
+
+- **Frontend:**
+  - Angular (TypeScript)
+  - libs: stompjs sockjs
+
+## Requisitos
+
+- Java
+- Angular
+- Node
+
+
